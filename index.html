@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفتر عقاراتي - إدارة عقاراتك بسهولة</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* إعدادات الخط والألوان الأساسية */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #f8fafc;
+            /* light grey */
+        }
+
+        /* تعريف ألوان التطبيق لاستخدامها مع Tailwind */
+        .bg-primary {
+            background-color: #e44d3a;
+        }
+
+        .text-primary {
+            color: #e44d3a;
+        }
+
+        .bg-secondary {
+            background-color: #1e303d;
+        }
+
+        .text-secondary {
+            color: #1e303d;
+        }
+
+        .border-primary {
+            border-color: #e44d3a;
+        }
+
+        /* التدرج اللوني المشابه لبطاقات التطبيق */
+        .gradient-bg {
+            background-image: linear-gradient(135deg, #e44d3a 0%, #f07a6d 100%);
+        }
+
+        /* حركة ظهور العناصر عند التمرير */
+        .reveal {
+            position: relative;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: 0.8s all ease;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* تأثير التوهج للزر */
+        .btn-glow:hover {
+            box-shadow: 0 0 25px rgba(228, 77, 58, 0.6);
+        }
+
+        /* خط فاصل بتدرج لوني */
+        .gradient-divider {
+            height: 4px;
+            width: 100px;
+            background-image: linear-gradient(to left, #e44d3a, #f07a6d);
+            border: 0;
+            border-radius: 2px;
+        }
+
+        /* Nav link active state */
+        .nav-link.active {
+            color: #e44d3a;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                <!-- تأكد من وجود صورة logo.png في نفس مجلد الملف -->
+                <img src="logo.png" alt="شعار دفتر عقاراتي" class="h-10 w-10">
+                <a href="#home" class="text-2xl font-bold text-secondary">دفتر عقاراتي</a>
+            </div>
+            <div class="flex items-center space-x-2 rtl:space-x-reverse text-lg">
+                <a href="#home"
+                    class="nav-link text-gray-600 hover:text-primary py-2 px-3 transition-colors duration-300">الرئيسية</a>
+                <a href="#features"
+                    class="nav-link text-gray-600 hover:text-primary py-2 px-3 transition-colors duration-300">المميزات</a>
+                <a href="#privacy"
+                    class="nav-link text-gray-600 hover:text-primary py-2 px-3 transition-colors duration-300">الخصوصية</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="gradient-bg text-white relative overflow-hidden">
+            <div class="container mx-auto px-6 py-24 md:py-32 text-center">
+                <div class="reveal">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">مساعدك الرقمي الأول لإدارة العقارات</h1>
+                    <p class="text-lg md:text-xl max-w-3xl mx-auto opacity-90">
+                        وداعاً للأوراق والملاحظات المبعثرة. مع "دفتر عقاراتي"، يمكنك تسجيل وتتبع جميع عقاراتك بسهولة
+                        وأمان، مع حفظ نسخة احتياطية على Google Drive.
+                    </p>
+                    <a href="#"
+                        class="mt-8 inline-block bg-secondary text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 btn-glow">
+                        حمل التطبيق الآن (قريباً)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-bold text-secondary">لماذا تختار دفتر عقاراتي؟</h2>
+                    <hr class="gradient-divider mx-auto mt-4">
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Feature 1 -->
+                    <div
+                        class="text-center p-8 bg-white rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="inline-block p-5 bg-primary/10 rounded-full mb-6">
+                            <!-- Icon: Simplicity -->
+                            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">سهولة الاستخدام</h3>
+                        <p class="text-gray-600">واجهة بسيطة ومباشرة تمكنك من إضافة وتعديل معلومات العقارات في ثوانٍ
+                            معدودة.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div
+                        class="text-center p-8 bg-white rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="inline-block p-5 bg-primary/10 rounded-full mb-6">
+                            <!-- Icon: Cloud Backup -->
+                            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 16.5V9.75m0 0l-3 3m3-3l3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">نسخ احتياطي آمن</h3>
+                        <p class="text-gray-600">اربط حسابك مع Google Drive لحفظ نسخة من بياناتك تلقائياً واستعادتها في
+                            أي وقت وعلى أي جهاز.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div
+                        class="text-center p-8 bg-white rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="inline-block p-5 bg-primary/10 rounded-full mb-6">
+                            <!-- Icon: Security -->
+                            <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286zm0 13.036h.008v.008h-.008v-.008z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">خصوصية تامة</h3>
+                        <p class="text-gray-600">بياناتك ملكك وحدك. يتم تخزينها على جهازك وحسابك الشخصي على Drive، وليس
+                            لدينا أي وصول إليها.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section id="privacy" class="py-20 bg-white">
+            <div class="container mx-auto px-6 max-w-4xl text-right">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-4xl font-bold text-secondary">سياسة الخصوصية</h2>
+                    <hr class="gradient-divider mx-auto mt-4">
+                    <p class="text-gray-500 mt-2">آخر تحديث: 13 سبتمبر 2025</p>
+                </div>
+
+                <div class="reveal space-y-10 text-gray-700 text-lg">
+                    <p class="lead text-xl text-center text-gray-600">نحن في "دفتر عقاراتي" نأخذ خصوصيتك على محمل الجد.
+                        توضح هذه السياسة كيفية تعاملنا مع بياناتك بشفافية تامة.</p>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">1. البيانات التي يتم جمعها</h3>
+                        <p>
+                            التطبيق مصمم للعمل دون اتصال بالإنترنت بشكل أساسي. جميع البيانات التي تدخلها (تفاصيل
+                            العقارات، معلومات المالك، الصور، الملاحظات، والإحداثيات) يتم تخزينها بشكل آمن ومحلي على
+                            جهازك فقط. <strong>نحن كمطورين ليس لدينا أي وصول لهذه البيانات.</strong>
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">2. الخدمات الخارجية (Third-Party Services)
+                        </h3>
+                        <p>
+                            لتقديم بعض الميزات، يستخدم التطبيق خدمات Google Drive و Google Maps. استخدامك لهذه الميزات
+                            يخضع لسياسات الخصوصية الخاصة بشركة جوجل. نحن نستخدم هذه الخدمات فقط للأغراض الموضحة ولا
+                            نشارك بياناتك مع أي طرف ثالث آخر.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">3. الصلاحيات المطلوبة</h3>
+                        <p>
+                            يتطلب التطبيق صلاحيات محددة مثل الوصول للموقع (لتحديد موقع العقار) ومساحة التخزين (لحفظ
+                            الصور). لا يتم استخدام هذه الصلاحيات لأي غرض آخر غير الوظائف الأساسية للتطبيق.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">4. أمان البيانات</h3>
+                        <p>
+                            نحن لا ننقل بياناتك الشخصية إلى أي خوادم خاصة بنا. يتم تأمين الاتصال بخدمات جوجل باستخدام
+                            بروتوكولات تشفير قياسية (SSL/TLS) لضمان حماية بياناتك أثناء عملية النسخ الاحتياطي.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">5. حقوقك</h3>
+                        <p>
+                            لديك السيطرة الكاملة على بياناتك. يمكنك إضافتها، تعديلها، أو حذفها في أي وقت مباشرة من داخل
+                            التطبيق. حذف التطبيق سيؤدي إلى حذف جميع البيانات المحلية بشكل دائم (ما لم يكن لديك نسخة
+                            احتياطية على Google Drive الخاص بك).
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold text-secondary mb-3">6. التواصل معنا</h3>
+                        <p>
+                            إذا كان لديك أي أسئلة بخصوص سياسة الخصوصية، يمكنك التواصل معنا عبر البريد الإلكتروني: <a
+                                href="mailto:dev.aqeelali@gmail.com"
+                                class="text-primary font-semibold hover:underline">dev.aqeelali@gmail.com</a>
+                        </p>
+                    </div>
+
+                    <div class="text-center pt-6 border-t border-gray-200">
+                        <p class="font-semibold text-gray-800">باستخدامك للتطبيق، فإنك توافق على هذه السياسة.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 دفتر عقاراتي. جميع الحقوق محفوظة.</p>
+            <p class="mt-2">تم التطوير بواسطة عقيل علي</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // حركة ظهور العناصر عند التمرير
+            function reveal() {
+                const reveals = document.querySelectorAll(".reveal");
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 100;
+
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add("active");
+                    }
+                }
+            }
+            window.addEventListener("scroll", reveal);
+            reveal(); // Fire on load
+
+            // تمييز رابط التنقل النشط عند التمرير
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            function navHighlighter() {
+                let scrollY = window.pageYOffset;
+                let currentSection = "";
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 80; // 80px offset for sticky header
+                    if (scrollY >= sectionTop) {
+                        currentSection = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove("active", "text-primary", "font-semibold");
+                    link.classList.add("text-gray-600");
+                    if (link.getAttribute("href") === "#" + currentSection) {
+                        link.classList.add("active", "text-primary", "font-semibold");
+                        link.classList.remove("text-gray-600");
+                    }
+                });
+                // حالة خاصة للصفحة الرئيسية في الأعلى
+                if (currentSection === "") {
+                    navLinks[0].classList.add("active", "text-primary", "font-semibold");
+                    navLinks[0].classList.remove("text-gray-600");
+                }
+            }
+            window.addEventListener("scroll", navHighlighter);
+            navHighlighter(); // Fire on load
+        });
+    </script>
+
+</body>
+
+</html>
