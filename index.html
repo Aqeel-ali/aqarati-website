@@ -85,6 +85,11 @@
             color: #e44d3a;
             font-weight: 600;
         }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+        }
     </style>
 </head>
 
@@ -98,7 +103,8 @@
                 <img src="logo.png" alt="شعار دفتر عقاراتي" class="h-10 w-10">
                 <a href="#home" class="text-2xl font-bold text-secondary">دفتر عقاراتي</a>
             </div>
-            <div class="flex items-center space-x-2 rtl:space-x-reverse text-lg">
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-2 rtl:space-x-reverse text-lg">
                 <a href="#home"
                     class="nav-link text-gray-600 hover:text-primary py-2 px-3 transition-colors duration-300">الرئيسية</a>
                 <a href="#features"
@@ -106,7 +112,27 @@
                 <a href="#privacy"
                     class="nav-link text-gray-600 hover:text-primary py-2 px-3 transition-colors duration-300">الخصوصية</a>
             </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-secondary focus:outline-none">
+                    <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
         </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden bg-white shadow-lg absolute top-full right-0 w-full transform translate-x-full">
+            <a href="#home"
+                class="block text-center text-lg py-3 px-4 text-gray-700 hover:bg-gray-100 mobile-link">الرئيسية</a>
+            <a href="#features"
+                class="block text-center text-lg py-3 px-4 text-gray-700 hover:bg-gray-100 mobile-link">المميزات</a>
+            <a href="#privacy"
+                class="block text-center text-lg py-3 px-4 text-gray-700 hover:bg-gray-100 mobile-link">الخصوصية</a>
+        </div>
     </header>
 
     <main>
@@ -271,7 +297,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // حركة ظهور العناصر عند التمرير
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            // Toggle Mobile Menu
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('translate-x-full');
+            });
+
+            // Close mobile menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+
+            // Reveal elements on scroll
             function reveal() {
                 const reveals = document.querySelectorAll(".reveal");
                 for (let i = 0; i < reveals.length; i++) {
@@ -287,7 +329,7 @@
             window.addEventListener("scroll", reveal);
             reveal(); // Fire on load
 
-            // تمييز رابط التنقل النشط عند التمرير
+            // Highlight active nav link on scroll
             const sections = document.querySelectorAll("section[id]");
             const navLinks = document.querySelectorAll(".nav-link");
 
@@ -310,8 +352,8 @@
                         link.classList.remove("text-gray-600");
                     }
                 });
-                // حالة خاصة للصفحة الرئيسية في الأعلى
-                if (currentSection === "") {
+                // Special case for top of the page
+                if (currentSection === "home" || currentSection === "") {
                     navLinks[0].classList.add("active", "text-primary", "font-semibold");
                     navLinks[0].classList.remove("text-gray-600");
                 }
